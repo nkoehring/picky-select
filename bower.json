@@ -1,0 +1,9 @@
+{
+  "name": "angular-picky-select",
+  "version": "0.0.5",
+  "main": ["picky-select.js", "picky-select.html", "picky-select.css"],
+  "ignore": [ "example" ],
+  "dependencies": {
+    "angular": ">=1.2.0"
+  }
+}

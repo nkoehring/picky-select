@@ -1,0 +1,25 @@
+<div class='picky-select'>
+  <div class='picky-select-title'>{{ selection.title || defaultTitle }}</div>
+  <div class='picky-select-drop-list'>
+    <div class='picky-select-search-wrapper'>
+      <label class='picky-select-search-label' for="picky-select-search">
+        {{ searchPlaceholder }}
+      </label>
+      <input class='picky-select-search'
+             name='picky-select-search'
+             title="{{searchFieldTitle}}"
+             ng-class="{opaque: searchTerm.length}"
+             ng-keypress="keyNavigation($event)"
+             ng-model="searchTerm">
+      </input>
+    </div>
+    <div class='picky-select-option'
+         data-picky-select-value="{{option.value}}"
+         title="{{option.title}}"
+         ng-click='select(option)'
+         ng-class='{ selected: option.selected }'
+         ng-repeat='option in options | filter:searchTerm'>
+      {{ option.title }}
+    </div>
+  </div>
+</div>

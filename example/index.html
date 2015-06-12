@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>angular fancy select boxes</title>
+    <link href='picky-select.css' rel='stylesheet'>
+    <link href='style.css' rel='stylesheet'>
+  </head>
+  <body>
+    <div id='app' ng-app='pickyExampleApp' ng-controller='Ctrl'>
+      <ul id="preview">
+        <li ng-repeat="item in options">
+          {{ item.value }}
+          ("{{ item.title }}")
+          {{ item.selected ? '✓' : '✗' }}
+        </li>
+      </ul>
+
+      <div picky-select
+           title='please select'
+           multi-select='true'
+           options='options'
+           search-placeholder='search…'></div>
+    </div>
+    <script src='angular.min.js'></script>
+    <script src='picky-select.js'></script>
+    <script src='app.js'></script>
+  </body>
+</html>

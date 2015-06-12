@@ -1,0 +1,22 @@
+body { background: #EEE; color: #333; width: 500px; margin: 1em auto; }
+
+
+#preview {
+  border-right: 3px double black;
+}
+
+#preview, .picky-select {
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+
+.picky-select {
+  font-size: 12px;
+  border: 1px solid gray;
+}
+
+.picky-select input.picky-select-search {
+  border: 1px solid #888;
+}
+

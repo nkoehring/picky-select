@@ -1,0 +1,57 @@
+.picky-select {
+  width: 200px;
+  height: 1.8em;
+  line-height: 2em;
+  cursor: pointer;
+  background: white;
+  color: black;
+}
+
+.picky-select > .picky-select-title {
+  padding-left: 1em;
+}
+
+.picky-select .picky-select-search-wrapper {
+  position: relative;
+  display: block;
+  height: 1.5em;
+  margin-bottom: .5em;
+}
+
+.picky-select label.picky-select-search-label,
+.picky-select input.picky-select-search {
+  position: absolute;
+  width: 99%;
+  height: 100%;
+  background: transparent;
+}
+.picky-select label.picky-select-search-label {
+  color: #CCC;
+  padding-left: 1em;
+}
+.picky-select input.picky-select-search {
+  color: black;
+  border: 1px solid black;
+}
+.picky-select input.picky-select-search:focus,
+.picky-select input.picky-select-search.opaque {
+  background: white;
+}
+
+.picky-select > .picky-select-drop-list {
+  display: none;
+  background: white;
+  color: black;
+}
+.picky-select .picky-select-option { padding: 0 1em; }
+
+.picky-select.open,
+.picky-select .picky-select-option.selected,
+.picky-select .picky-select-option:hover {
+  background: black;
+  color: white;
+}
+
+.picky-select.open > .picky-select-drop-list { display: block; }
+
+
