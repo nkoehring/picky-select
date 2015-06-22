@@ -1,6 +1,9 @@
 {
   "name": "angular-picky-select",
+  "description": "chosenjs style directive without chosenjs or jquery",
   "version": "0.0.5",
+  "homepage": "https://github.com/nkoehring/picky-select",
+  "license": "ISC",
   "main": ["picky-select.js", "picky-select.html", "picky-select.css"],
   "ignore": [ "example" ],
   "dependencies": {
