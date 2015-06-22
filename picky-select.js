@@ -3,6 +3,20 @@ angular.module('koehr.directives').directive('pickySelect', [
 
   '$document', function($document) {
 
+    function isChildOf(suggestedParent, element) {
+
+      var parent = element.parentElement
+
+      do {
+        if(parent === null || parent === suggestedParent) break
+      } while(parent = parent.parentElement)
+
+      // parent will be null if element is no child of suggestedParent
+      // and suggestedParent otherwise
+      return !!parent
+    }
+
+
     var directive = {
       restrict: "A",
       replace: true,
@@ -21,18 +35,20 @@ angular.module('koehr.directives').directive('pickySelect', [
         }
 
         function documentClickHandler(evt) {
-          if(evt.target.className.indexOf("picky-select") < 0) closeList()
+
+          var target = evt.target
+
+          if(!$element[0] === target || !isChildOf($element[0], target))
+            closeList()
+
         }
 
         function clickHandler(evt) {
 
-          var $target = angular.element(evt.target)
+          var target = evt.target
 
-          if(!$target.hasClass("picky-select") &&
-             !$target.hasClass("picky-select-title") &&
-             !$target.hasClass("picky-select-option")) {
+          if(!$element[0] === target || !isChildOf($element[0], target))
             return
-          }
 
           $element.hasClass("open") ? closeList() : openList()
 
