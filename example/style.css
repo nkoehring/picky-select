@@ -1,28 +1,32 @@
 body { background: #EEE; color: #333; width: 700px; margin: 1em auto; }
 
+#left, #right {
+  display: inline-block;
+  width: 345px;
+  vertical-align: top;
+}
 
-#preview {
-  border-right: 3px double black;
+h1 {
+  font-size: 120%;
 }
 
 #preview, .picky-select {
-  display: inline-block;
+  display: block;
   width: 200px;
-  vertical-align: top;
 }
 
 .picky-select {
   font-size: 12px;
-  border: 1px solid gray;
-}
-
-.picky-select.green {
-  font-size: 12px;
   border: 1px solid green;
   background: #DFD;
 }
-.picky-select.green.open {
+.picky-select.open {
+  background: #ADA;
   color: black;
+}
+.picky-select.multi-select {
+  border: 1px solid navy;
+  background: #DDF;
 }
 
 .picky-select input.picky-select-search {

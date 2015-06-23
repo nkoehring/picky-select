@@ -56,7 +56,11 @@ angular.module('koehr.directives').directive('pickySelect', [
 
         }
 
-        $element.on("click", clickHandler)
+        if($attrs.multiSelect) {
+          $element.addClass("multi-select")
+        } else {
+          $element.on("click", clickHandler)
+        }
 
         $scope.selection = null
         $scope.defaultTitle = $attrs.title

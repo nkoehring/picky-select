@@ -8,26 +8,32 @@
   </head>
   <body>
     <div id='app' ng-app='pickyExampleApp' ng-controller='Ctrl'>
-      <ul id="preview">
-        <li ng-repeat="item in options">
-          {{ item.value }}
-          ("{{ item.title }}")
-          {{ item.selected ? '✓' : '✗' }}
-        </li>
-      </ul>
 
-      <div picky-select
-           title='please select'
-           options='options'
-           search-placeholder='search…'>
+      <div id="left">
+        <h1>single selection</h1>
+        <div picky-select
+             title='please select'
+             options='options'
+             search-placeholder='search…'>
+        </div>
+
+        <ul id="preview">
+          <li ng-repeat="item in options">
+            {{ item.value }}
+            ("{{ item.title }}")
+            {{ item.selected ? '✓' : '✗' }}
+          </li>
+        </ul>
       </div>
 
-      <div picky-select
-           class="green"
-           title='please select'
-           multi-select='true'
-           options='options'
-           search-placeholder='search…'>
+      <div id="right">
+        <h1>multi selection</h1>
+        <div picky-select
+             title='please select'
+             multi-select='true'
+             options='options'
+             search-placeholder='search…'>
+        </div>
       </div>
     </div>
 

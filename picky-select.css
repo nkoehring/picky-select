@@ -1,10 +1,15 @@
 .picky-select {
-  width: 200px;
+  position: relative;
+  width: auto;
   height: 1.8em;
   line-height: 2em;
   cursor: pointer;
   background: white;
   color: black;
+}
+
+.picky-select.open, .picky-select.multi-select {
+  height: auto;
 }
 
 .picky-select > .picky-select-title {
@@ -42,6 +47,7 @@
   display: none;
   background: white;
   color: black;
+  font-weight: normal;
 }
 .picky-select .picky-select-option { padding: 0 1em; }
 
@@ -52,6 +58,12 @@
   color: white;
 }
 
-.picky-select.open > .picky-select-drop-list { display: block; }
+.picky-select.open > .picky-select-drop-list,
+.picky-select.multi-select > .picky-select-drop-list {
+  display: block;
+}
 
-
+.picky-select.open > .picky-select-drop-list {
+  position: absolute;
+  width: 100%;
+}

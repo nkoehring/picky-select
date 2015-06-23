@@ -20,43 +20,58 @@ describe('pickySelect', function() {
     //)
   }));
 
-  beforeEach(function() {
-    $element = $compile("<div picky-select></div>")($scope)
-    $scope.$digest()
+
+  describe("mono select", function() {
+    beforeEach(function() {
+      $element = $compile("<div picky-select></div>")($scope)
+      $scope.$digest()
+    })
+
+    it("will totally replace everything", function() {
+      expect($element.html()).toContain("juicy markup")
+    })
+
+    it("will toggle the element on click", function() {
+      $element.triggerHandler("click")
+      expect($element.hasClass("open")).toBeTruthy()
+      $element.triggerHandler("click")
+      expect($element.hasClass("open")).toBeFalsy()
+    })
+
+    it("will close the element on outside click", function() {
+      $element.triggerHandler("click")
+      $document.triggerHandler("click")
+      expect($element.hasClass("open")).toBeFalsy()
+    })
+
+    it("listens for document click only once", function() {
+      $element.triggerHandler("click")
+      $document.triggerHandler("click")
+      $element.addClass("open")
+      $document.triggerHandler("click")
+      expect($element.hasClass("open")).toBeTruthy()
+    })
+
+    it("will not close on search element click", function() {
+      var $searchEl = angular.element("<input class='picky-select-search'>"),
+          clickEvent = {type: "click", target: $searchEl[0]}
+
+      $element.append($searchEl)
+      $element.triggerHandler(clickEvent)
+      expect($element.hasClass("open")).toBeFalsy()
+    })
   })
 
-  it("will totally replace everything", function() {
-    expect($element.html()).toContain("juicy markup")
-  })
+  describe("multi select", function() {
+    beforeEach(function() {
+      $element = $compile("<div picky-select multi-select=true></div>")($scope)
+      $scope.$digest()
+    })
 
-  it("will toggle the element on click", function() {
-    $element.triggerHandler("click")
-    expect($element.hasClass("open")).toBeTruthy()
-    $element.triggerHandler("click")
-    expect($element.hasClass("open")).toBeFalsy()
-  })
+    it("will set an appropriate css class", function() {
+      expect($element.hasClass("multi-select")).toBeTruthy()
+    })
 
-  it("will close the element on outside click", function() {
-    $element.triggerHandler("click")
-    $document.triggerHandler("click")
-    expect($element.hasClass("open")).toBeFalsy()
-  })
-
-  it("listens for document click only once", function() {
-    $element.triggerHandler("click")
-    $document.triggerHandler("click")
-    $element.addClass("open")
-    $document.triggerHandler("click")
-    expect($element.hasClass("open")).toBeTruthy()
-  })
-
-  it("will not close on search element click", function() {
-    var $searchEl = angular.element("<input class='picky-select-search'>"),
-        clickEvent = {type: "click", target: $searchEl[0]}
-
-    $element.append($searchEl)
-    $element.triggerHandler(clickEvent)
-    expect($element.hasClass("open")).toBeFalsy()
   })
 
 })
