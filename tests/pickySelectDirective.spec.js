@@ -50,7 +50,7 @@ describe('pickySelect', function() {
     expect($element.hasClass("open")).toBeTruthy()
   })
 
-  it("will not close on searc element click", function() {
+  it("will not close on search element click", function() {
     var $searchEl = angular.element("<input class='picky-select-search'>"),
         clickEvent = {type: "click", target: $searchEl[0]}
 
