@@ -46,8 +46,10 @@ angular.module('koehr.directives').directive('pickySelect', [
         function clickHandler(evt) {
 
           var target = evt.target
+              $target = angular.element(target)
 
-          if(!$element[0] === target || !isChildOf($element[0], target))
+          // do not close on search field click
+          if($target.hasClass("picky-select-search") && isChildOf($element[0], target))
             return
 
           $element.hasClass("open") ? closeList() : openList()
